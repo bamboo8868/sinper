@@ -1,0 +1,17 @@
+{
+    "name": "bamboo/sniper",
+    "description": "php common",
+    "type": "library",
+    "license": "mit",
+    "autoload": {
+        "psr-4": {
+            "Bamboo\\Sniper\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "bamboo"
+        }
+    ],
+    "require": {}
+}
