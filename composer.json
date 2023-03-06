@@ -13,5 +13,8 @@
             "name": "bamboo"
         }
     ],
-    "require": {}
+    "require": {
+        "php": "^8.0"
+    },
+    "minimum-stability": "dev"
 }
