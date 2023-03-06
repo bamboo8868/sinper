@@ -1,5 +1,5 @@
 <?php
-namespace Bamboo\Sniper;
+namespace BambooX\Sniper;
 
 class Buffer
 {

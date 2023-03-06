@@ -5,7 +5,7 @@
     "license": "mit",
     "autoload": {
         "psr-4": {
-            "Bamboo\\Sniper\\": "src/"
+            "BambooX\\Sniper\\": "src/"
         }
     },
     "authors": [
