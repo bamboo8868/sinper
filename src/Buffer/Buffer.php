@@ -37,6 +37,17 @@ class Buffer
         $this->writeInt32($num);
     }
 
+    public function writeInt16(int $num)
+    {
+        $str = dechex($num);
+        if (strlen($str) < 4) {
+            $str = str_pad($str, 4, 0, STR_PAD_LEFT);
+        }
+        foreach (str_split($str, 2) as $val) {
+            $this->buf[] = $val;
+        }
+    }
+
     public function writeInt32(int $num)
     {
         $str = dechex($num);
