@@ -17,7 +17,7 @@ class Buffer
     {
         if ($str instanceof Buffer) {
             foreach ($str->buf as $hex) {
-                $this->buf = $hex;
+                $this->buf[] = $hex;
             }
         } else if (is_string($str)) {
             $len = strlen($str);
