@@ -48,6 +48,14 @@ class Buffer
         $this->buf .= chr($num >> 56 | $hex).chr($num >> 48 | $hex).chr($num >> 40 | $hex).chr($num >> 32 | $hex).chr($num >> 24 | $hex) . chr($num >> 16 | $hex) . chr($num >> 8 | $hex) . chr($num | $hex);
     }
 
+    public function readBytes(int $len)
+    {
+        if(\strlen($this->buf) < $len) {
+            throw new BufferLengthErrorException();
+        }
+        return substr($this->buf,0,$len);
+    }
+
     public function readInt16():int
     {
         if(\strlen($this->buf) < 2) {
@@ -99,9 +107,3 @@ class Buffer
         return $this->buf;
     }
 }
-
-
-$buf= new Buffer();
-$buf->writeInt32(34444);
-$num = $buf->readInt32();
-echo $num;
