@@ -53,7 +53,9 @@ class Buffer
         if(\strlen($this->buf) < $len) {
             throw new BufferLengthErrorException();
         }
-        return substr($this->buf,0,$len);
+        $data = substr($this->buf,0,$len);
+        $this->buf = substr($this->buf,$len);
+        return $data;
     }
 
     public function readInt16():int
@@ -64,6 +66,7 @@ class Buffer
         $num = 0X0000;
         $num  = $num | (ord($this->buf[2]) << 8);
         $num  = $num | (ord($this->buf[3]));
+        $this->buf = substr($this->buf,2);
         return $num;
     }
 
@@ -77,6 +80,7 @@ class Buffer
         $num  = $num | (ord($this->buf[1]) << 16);
         $num  = $num | (ord($this->buf[2]) << 8);
         $num  = $num | (ord($this->buf[3]));
+        $this->buf = substr($this->buf,4);
         return $num;
     }
 
@@ -94,6 +98,7 @@ class Buffer
         $num  = $num | (ord($this->buf[1]) << 16);
         $num  = $num | (ord($this->buf[2]) << 8);
         $num  = $num | (ord($this->buf[3]));
+        $this->buf = substr($this->buf,8);
         return $num;
     }
 
